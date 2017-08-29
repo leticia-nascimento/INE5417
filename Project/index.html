@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <style>
-      #map {
-        height: 400px;
-        width: 100%;
-       }
-    </style>
-  </head>
-  <body>
-    <h3>My Google Maps Demo</h3>
-    <div id="map"></div>
-    <script>
-      function initMap() {
-        var uluru = {lat: -27.59, lng: -48.55};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOP_jeyweJx3xGVEhh9RpBtboC1QM5gNU&callback=initMap">
-    </script>
-  </body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Diogo Junior de Souza, Leticia do Nascimento">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Ilha do Crime</title>
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/styles.css">
+
+        <script src="js/jquery-3.2.1.js"></script>
+    </head>
+    <body>
+        <div id="map-container"></div>
+        <h3>ILHA DO CRIME</h3>
+
+        <div class="js-container">
+            <div class="last-crimes-cont"></div>
+        </div>
+
+        <script src="js/MapController.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOP_jeyweJx3xGVEhh9RpBtboC1QM5gNU&callback=initMap"></script>
+
+        <script src="EventDispatcher.js"></script>
+        <script src="TaskModel.js"></script>
+        <script src="TaskView.js"></script>
+        <script src="TaskController.js"></script>
+        <script src="App.js"></script>
+    </body>
 </html>
