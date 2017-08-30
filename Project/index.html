@@ -13,31 +13,32 @@
         <script src="js/jquery-3.2.1.min.js"></script>
     </head>
     <body>
-        <div id="map-container"></div>
-        <h3>ILHA DO CRIME</h3>
+        <!--<div id="map-container"></div>-->
+        <h1>ILHA DO CRIME</h1>
 
-        <div class="js-container">
-            <input type="text" class="js-crime-textbox">
-            <input type="button" class="js-add-crime-button" value="Add Crime">
-
-
-            <div class="last-crimes-container">
-                <div>
-                <label><input type="checkbox" class="js-crime" data-index="0" data-crime-selected="false">fulano</label>
-                </div>
-            </div>
-            <!-- end crimes -->
-            <input type="button" class="js-complete-crime-button" value="Complete Crimes">
-            <input type="button" class="js-del-crime-button" value="Delete Crimes">
+        <h3>Últimos crimes</h3>
+        <div id="last-crimes-container">
+            <select id="last-crimes-list" size="10"></select>
+            <button id="del-crime-button">Remover</button>
         </div>
 
-        <script src="js/MapController.js"></script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOP_jeyweJx3xGVEhh9RpBtboC1QM5gNU&callback=initMap"></script>
+        <h3>Cadastrar Crime</h3>
+        <div id="form-crime">
+            <label>Local:</label><div><input type="text" id="crime-local"></div>
+            <label>Tipo:</label><div><input type="text" id="crime-name"></div>
+            <label>Horário:</label><div><input type="text" id="crime-time"></div>
+            <label>BO:</label><div><input type="checkbox" id="crime-bo"></div>
+            <div><button id="add-crime-button">Cadastrar</button></div>
+        </div>
 
-        <script src="js/EventDispatcher.js"></script>
-        <script src="js/CrimeModel.js"></script>
-        <script src="js/CrimeView.js"></script>
-        <script src="js/CrimeController.js"></script>
+        <!--<script src="js/MapController.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOP_jeyweJx3xGVEhh9RpBtboC1QM5gNU&callback=initMap"></script>
+        -->
+        <script src="js/Event.js"></script>
+        <script src="js/Crime.js"></script>
+        <script src="js/Model.js"></script>
+        <script src="js/View.js"></script>
+        <script src="js/Controller.js"></script>
         <script src="js/App.js"></script>
     </body>
 </html>

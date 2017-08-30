@@ -1,4 +1,38 @@
+body {
+	padding: 10px 20px;
+}
+
 #map-container {
     height: 400px;
     width: 100%;
+}
+
+#last-crimes-container {
+	width: 200px;
+	margin-bottom: 40px;
+}
+
+#last-crimes-list {
+	width: 100%;
+}
+
+button {
+	padding: 0;
+	margin: 0;
+}
+
+#form-crime {
+	width: 400px;
+}
+
+#form-crime div {
+	display: inline-block;
+	width: 300px;
+	margin: 5px 0;
+}
+
+#form-crime label {
+	width: 80px;
+	padding-right: 5px;
+	text-align: right;
 }
