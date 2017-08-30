@@ -1,44 +1,54 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="author" content="Diogo Junior de Souza, Leticia do Nascimento">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Diogo Junior de Souza, Leticia do Nascimento">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Ilha do Crime</title>
+    <title>Ilha do Crime</title>
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
 
-        <script src="js/jquery-3.2.1.min.js"></script>
-    </head>
-    <body>
-        <!--<div id="map-container"></div>-->
-        <h1>ILHA DO CRIME</h1>
+    <script src="js/jquery-3.2.1.min.js"></script>
+  </head>
+  <body>
+    <div id="map-container"></div>
+    <h1>ILHA DO CRIME</h1>
 
-        <h3>Últimos crimes</h3>
-        <div id="last-crimes-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <h3>Últimos crimes</h3>
+          <div id="last-crimes-container">
             <select id="last-crimes-list" size="10"></select>
             <button id="del-crime-button">Remover</button>
+          </div>
         </div>
-
-        <h3>Cadastrar Crime</h3>
-        <div id="form-crime">
-            <label>Local:</label><div><input type="text" id="crime-local"></div>
-            <label>Tipo:</label><div><input type="text" id="crime-name"></div>
-            <label>Horário:</label><div><input type="text" id="crime-time"></div>
-            <label>BO:</label><div><input type="checkbox" id="crime-bo"></div>
+        <div class="col-sm-4">
+          <h3>Cadastrar Crime</h3>
+          <div id="form-crime">
+            <div><label>Local:</label><input type="text" id="crime-local"></div>
+            <div><label>Tipo:</label><input type="text" id="crime-name"></div>
+            <div><label>Horário:</label><input type="text" id="crime-time"></div>
+            <div><label>BO:</label><input type="checkbox" id="crime-bo"></div>
             <div><button id="add-crime-button">Cadastrar</button></div>
+          </div>
         </div>
-
-        <!--<script src="js/MapController.js"></script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOP_jeyweJx3xGVEhh9RpBtboC1QM5gNU&callback=initMap"></script>
-        -->
-        <script src="js/Event.js"></script>
-        <script src="js/Crime.js"></script>
-        <script src="js/Model.js"></script>
-        <script src="js/View.js"></script>
-        <script src="js/Controller.js"></script>
-        <script src="js/App.js"></script>
-    </body>
+        <div class="col-sm-4">
+                      
+        </div>
+      </div>
+    </div>
+        
+    <script src="js/MapController.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOP_jeyweJx3xGVEhh9RpBtboC1QM5gNU&callback=initMap"></script>
+        
+    <script src="js/Event.js"></script>
+    <script src="js/Crime.js"></script>
+    <script src="js/Model.js"></script>
+    <script src="js/View.js"></script>
+    <script src="js/Controller.js"></script>
+    <script src="js/App.js"></script>
+  </body>
 </html>
