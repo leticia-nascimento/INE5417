@@ -1,6 +1,5 @@
 $(function () {
-	let firstCrime = new Crime('Florianópolis', 'Roubo', '23:30', true);
-    let model = new Model([firstCrime]);
+    let model = new Model();
     let view = new View({
             'list' : $('#last-crimes-list'),
             'delButton' : $('#del-crime-button'),

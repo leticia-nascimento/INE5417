@@ -3,8 +3,9 @@
  * observers about changes.
  */
 class Model {
-    constructor(crimes) {
+    constructor(crimes = []) {
         this._crimes = crimes;
+        this._users = {};
         this._selIndex = -1;
         
         this.crimeAdded = new Event(this);
@@ -44,18 +45,24 @@ class Model {
     }
 
     saveDB() {
-        let record = { crimes: this._crimes };
+        let record = {
+            crimes: this._crimes,
+            users: this._users
+        };
         window.localStorage.IlhaDoCrime = JSON.stringify(record);
     }
 
     retrieveDB() {
         if (window.localStorage.IlhaDoCrime != undefined) {
-            console.log("entrou");
             let record = JSON.parse(window.localStorage.IlhaDoCrime);
-            let crimes = record.crimes;
+            let { crimes, users } = record;
             for (let key in crimes) {
                 let crime = crimes[key];
                 this.addCrime(new Crime(crime._local, crime._name, crime._time, crime._bo));
+            }
+            for (let key in users) {
+                let user = users[key];
+                this._users.push(new User(user._name, user._pwd));
             }
         }
     }

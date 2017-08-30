@@ -21,17 +21,17 @@ button {
 	margin: 0;
 }
 
-#form-crime {
+div[id^="form"] {
 	width: 100%;
 }
 
-#form-crime div {
+div[id^="form"] div {
 	display: inline-block;
 	width: 300px;
 	margin: 5px 0;
 }
 
-#form-crime label {
+div[id^="form"] label {
 	width: 80px;
 	padding-right: 5px;
 	text-align: right;
