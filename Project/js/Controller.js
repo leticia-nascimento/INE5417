@@ -50,7 +50,7 @@ class Controller {
     delItem() {
         let index = this._model.selIndex;
         if (index !== -1) {
-            this._model.removeItemAt(index);
+            this._model.removeCrimeAt(index);
         }
     }
 
@@ -60,5 +60,6 @@ class Controller {
 
     init() {
         this._view.show(this._model.crimes);
+        this._model.retrieveDB();
     }
 }

@@ -19,6 +19,7 @@ class Model {
     addCrime(crime) {
         this._crimes.push(crime);
         this.crimeAdded.notify({ crime: crime });
+        this.saveDB();
     }
 
     removeCrimeAt(index) {
@@ -28,6 +29,7 @@ class Model {
         if (index === this._selIndex) {
             this._selIndex = -1;
         }
+        this.saveDB();
     }
 
     get selIndex () {
@@ -39,5 +41,22 @@ class Model {
 
         this._selIndex = index;
         this.selIndexChanged.notify({ previous : prevIndex });
+    }
+
+    saveDB() {
+        let record = { crimes: this._crimes };
+        window.localStorage.IlhaDoCrime = JSON.stringify(record);
+    }
+
+    retrieveDB() {
+        if (window.localStorage.IlhaDoCrime != undefined) {
+            console.log("entrou");
+            let record = JSON.parse(window.localStorage.IlhaDoCrime);
+            let crimes = record.crimes;
+            for (let key in crimes) {
+                let crime = crimes[key];
+                this.addCrime(new Crime(crime._local, crime._name, crime._time, crime._bo));
+            }
+        }
     }
 }
