@@ -1,11 +1,12 @@
 /**
- * The Model. Model stores items and notifies
+ * The Fachada. Fachada stores items and notifies
  * observers about changes.
  */
-class Model {
+class Fachada {
     constructor(crimes = []) {
         this._crimes = crimes;
         this._users = {};
+        this._aeps = [];
         this._selIndex = -1;
         
         this.crimeAdded = new Event(this);

@@ -1,3 +1,7 @@
+import Fachada from "./Fachada"
+import GUI from "./GUI"
+import HTMLView from "./HTMLView"
+
 $(function () {
     let fachada = new Fachada();
     let gui = new GUI({

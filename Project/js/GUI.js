@@ -1,10 +1,10 @@
 /**
- * The View. View presents the model and provides
+ * The GUI. GUI presents the model and provides
  * the UI events. The controller is attached to these
  * events to handle the user interaction.
  */
 
-class View {
+class GUI {
     constructor(elements) {
         this._elements = elements;
 
