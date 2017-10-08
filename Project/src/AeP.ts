@@ -1,3 +1,4 @@
+// AeP: Achados e Perdidos
 export default class AeP {
 	static _id: number = 0;
 
@@ -5,7 +6,7 @@ export default class AeP {
 		private _local: string,
 		private _descricao: string
 	) {
-		this._id++;
+		AeP._id++;
 	}
 
 	get local () {
@@ -13,7 +14,7 @@ export default class AeP {
 	}
 
 	get id () {
-		return this._id;
+		return AeP._id;
 	}
 
 	get descricao () {

@@ -1,3 +1,4 @@
+import HTMLController from "./HTMLController"
 import Event from "./Event"
 import Crime from "./Crime"
 import User from "./User"
@@ -15,7 +16,7 @@ export default class Fachada {
     public crimeRemoved: Event;
     public selIndexChanged: Event;
     public aepAdded: Event;
-
+    public _htmlcontroller: HTMLController;
 
     constructor(
         public _crimes: Array<Crime> = [],
@@ -30,6 +31,10 @@ export default class Fachada {
         this.aepAdded = new Event(this);
     }
 
+    setHTMLController(htmlcontroller: HTMLController) {
+        this._htmlcontroller = htmlcontroller;
+    }
+
     get crimes () {
         return [].concat(this._crimes);
     }
@@ -37,25 +42,43 @@ export default class Fachada {
     addCrime(local: string, name: string, time: Time, date: Date, BO: boolean) {
         let crime = new Crime(local, name, time, date, BO);
         this._crimes.push(crime);
-        this.crimeAdded.notify({ crime: crime });
         this.saveDB();
+        this.crimeAdded.notify();
     }
 
     registerAeP(local: string, descricao: string) {
         let aep = new AeP(local, descricao);
         this._aeps.push(aep);
-        this.aepAdded.notify({ aep: aep });
+        this._htmlcontroller.printConfirmed();
         this.saveDB();
+    }
+
+    showCrime(id: number) {
+        let crime = this._crimes[id];
+        this._htmlcontroller.printCrime(crime);
+
+    }
+
+    showAeP() {
+        for(let i = 0; i < this._aeps.length; i++) {
+            this._htmlcontroller.printAeP(this._aeps[i]);
+        }
+    }
+
+    showInfo() {
+        for(let i = 0; i < this._informacoes.length; i++) {
+            this._htmlcontroller.printInfo(this._informacoes[i]);
+        }
     }
 
     removeCrimeAt(index: number) {
         let crime = this._crimes[index];
         this._crimes.splice(index, 1);
-        this.crimeRemoved.notify({ crime : crime });
         if (index === this._selIndex) {
             this._selIndex = -1;
         }
         this.saveDB();
+        this.crimeRemoved.notify();
     }
 
     get selIndex () {

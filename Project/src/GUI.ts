@@ -13,6 +13,7 @@ interface GUIElements {
     crimeLocal: HTMLElement,
     crimeName: HTMLElement,
     crimeTime: HTMLElement,
+    crimeDate: HTMLElement,
     crimeBO: HTMLElement,
     addButton: HTMLElement
 }
@@ -29,16 +30,17 @@ export default class GUI {
         this.addButtonClicked = new Event(this);
         this.delButtonClicked = new Event(this);
 
+
         // ***** Attach Listeners to HTML controls *****
-        this._elements.list.change(function (e) {
-            this.listModified.notify({ index : e.target.selIndex });
-        });
-        this._elements.addButton.click = () => {
+        this._elements.addButton.onclick = () => {
             this.addButtonClicked.notify();
         };
-        this._elements.delButton.click(function () {
+        this._elements.list.onchange = (e) => {
+            this.listModified.notify(e.target);
+        };
+        this._elements.delButton.onclick = () => {
             this.delButtonClicked.notify();
-        });
+        };
     }
 
     get elements () {
@@ -51,11 +53,13 @@ export default class GUI {
 
     rebuildList(crimes: Array<Crime>) {
         let list = this._elements.list;
-        list.html('');
+        list.innerHTML = '';
 
         for (let key in crimes) {
             if (crimes.hasOwnProperty(key)) {
-                list.append($('<option>' + crimes[key].name + '</option>'));
+                let op = document.createElement('option');
+                op.innerText = crimes[key].name;
+                list.appendChild(op);
             }
         }
     }

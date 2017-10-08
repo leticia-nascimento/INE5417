@@ -1,0 +1,31 @@
+{
+    "name": "IlhaDoCrime",
+    "version": "1.0.0",
+    "description": "Webapp for Software Engineering I Course",
+    "main": "server.js",
+    "devDependencies": {
+        "@types/requirejs": "^2.1.31",
+        "express": "^4.15.5",
+        "tslint": "^5.7.0",
+        "typescript": "^2.5.3"
+    },
+    "scripts": {
+        "build": "tsc",
+        "test": "npm run build && mocha -u tdd out/test/",
+        "postinstall": "npm run build",
+        "start": "node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/leticia-nascimento/INE5417.git"
+    },
+    "author": "Diogo Junior & Leticia Nascimento",
+    "license": "GPL",
+    "bugs": {
+        "url": "https://github.com/leticia-nascimento/INE5417/issues"
+    },
+    "homepage": "https://github.com/leticia-nascimento/INE5417#readme",
+    "dependencies": {
+        "tslib": "^1.7.1"
+    }
+}
