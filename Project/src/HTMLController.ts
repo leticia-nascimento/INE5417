@@ -19,8 +19,8 @@ export default class HTMLController {
         this.fachada.setHTMLController(this);
 
         // ***** Attach GUI Listeners *****
-        this.gui.listModified.attach(function (sender: any, args: any) {
-            this.updateSelected(args.index);
+        this.gui.listModified.attach( (sender: any, args: any) => {
+            this.updateSelected(args);
         });
 
         this.gui.addButtonClicked.attach( () => {
@@ -74,6 +74,7 @@ export default class HTMLController {
 
     updateSelected(index) {
         this.fachada.selIndex = index;
+        this.fachada.showCrime(index);
     }
 
     init() {
@@ -86,7 +87,7 @@ export default class HTMLController {
     }
 
     printCrime(crime: Crime) {
-        alert(crime);
+        this.gui.printCrime(crime);
     }
     
     printInfo(informacao: Informacao) {
