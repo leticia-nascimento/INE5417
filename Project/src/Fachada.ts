@@ -49,26 +49,22 @@ export default class Fachada {
     registerAeP(local: string, descricao: string) {
         let aep = new AeP(local, descricao);
         this._aeps.push(aep);
-        this._htmlcontroller.printConfirmed();
         this.saveDB();
+        return true;
     }
 
     showCrime(id: number) {
         let crime = this._crimes[id];
-        this._htmlcontroller.printCrime(crime);
+        return crime;
 
     }
 
-    showAeP() {
-        for(let i = 0; i < this._aeps.length; i++) {
-            this._htmlcontroller.printAeP(this._aeps[i]);
-        }
+    showAeP(id) {
+        return this._aeps[id];
     }
 
-    showInfo() {
-        for(let i = 0; i < this._informacoes.length; i++) {
-            this._htmlcontroller.printInfo(this._informacoes[i]);
-        }
+    showInfo(id: number) {
+        return this._informacoes[id];
     }
 
     removeCrimeAt(index: number) {

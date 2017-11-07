@@ -74,7 +74,8 @@ export default class HTMLController {
 
     updateSelected(index) {
         this.fachada.selIndex = index;
-        this.fachada.showCrime(index);
+        let crime = this.fachada.showCrime(index);
+        this.printCrime(crime);
     }
 
     init() {
@@ -87,14 +88,38 @@ export default class HTMLController {
     }
 
     printCrime(crime: Crime) {
-        this.gui.printCrime(crime);
+        let t: any = crime.time;
+        let time: string = ("00" + t._hora).slice(-2) + ":" + ("00" + t._minuto).slice(-2);
+        let d: any = crime.date;
+        let date: string = ("00" + d._day).slice(-2) + "/" + ("00" + d._month).slice(-2);
+        let bo = (crime.bo ? 'Sim' : 'Não' );
+        this.gui.printCrime(crime.name, crime.local, time, date, bo);
     }
     
+    showInfo() {
+        console.log("Informações para Denuncias:");
+        for(let i = 0; i < this.fachada._informacoes.length; i++) {
+            let info = this.fachada.showInfo(i);
+            this.printInfo(info);
+        }
+        console.log("");
+    }
+
+    showAeP() {
+        console.log("Achados e Perdidos:");
+        for(let i = 0; i < this.fachada._aeps.length; i++) {
+            let aep = this.fachada.showAeP(i);
+            console.log(i);
+            this.printAeP(aep);
+        }
+    }
+
     printInfo(informacao: Informacao) {
-        alert(informacao);
+        console.log( (informacao.nome + ": " + informacao.numero));
     }
 
     printAeP(aep: AeP) {
-        alert(aep);
+        console.log("Local:", aep.local);
+        console.log("Descrição:", aep.descricao);
     }
 }
