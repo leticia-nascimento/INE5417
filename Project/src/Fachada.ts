@@ -16,7 +16,7 @@ export default class Fachada {
     public crimeRemoved: Event;
     public selIndexChanged: Event;
     public aepAdded: Event;
-    public _htmlcontroller: HTMLController;
+//  public _htmlcontroller: HTMLController;
 
     constructor(
         public _crimes: Array<Crime> = [],
@@ -31,10 +31,10 @@ export default class Fachada {
         this.aepAdded = new Event(this);
     }
 
-    setHTMLController(htmlcontroller: HTMLController) {
+/*    setHTMLController(htmlcontroller: HTMLController) {
         this._htmlcontroller = htmlcontroller;
     }
-
+*/
     get crimes () {
         return [].concat(this._crimes);
     }
@@ -54,9 +54,7 @@ export default class Fachada {
     }
 
     showCrime(id: number) {
-        let crime = this._crimes[id];
-        return crime;
-
+        return this._crimes[id];
     }
 
     showAeP(id) {
